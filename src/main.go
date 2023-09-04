@@ -1,6 +1,7 @@
 package main
 
 import (
+	"PEG3000/src/adapters/core/services"
 	"PEG3000/src/adapters/in/web"
 	"PEG3000/src/adapters/out/db"
 	"go.uber.org/zap"
@@ -14,6 +15,7 @@ func main() {
 
 	client := db.NewFirebaseClient()
 	getWildPokemon := db.NewGetWildPokemonDbAdapter(client)
+
 	server := web.NewServer().
 		WithGetWildPokemonAdapter(services.NewGetWildPokemonService(getWildPokemon))
 

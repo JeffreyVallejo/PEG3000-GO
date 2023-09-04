@@ -6,8 +6,11 @@ import (
 )
 
 const (
-	RootRoute   = "/"
-	HealthRoute = "/health"
+	RootRoute      = "/"
+	HealthRoute    = "/health"
+	EncounterRoute = "/encounter"
+	PathParam      = "/:"
+	Location       = "location"
 )
 
 type Server struct {

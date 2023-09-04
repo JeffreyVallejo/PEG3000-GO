@@ -8,6 +8,10 @@ import (
 	"google.golang.org/api/option"
 )
 
+const (
+	WildPokemonCollection = "Encounter-Pokemon"
+)
+
 type FirestoreDatabase struct {
 	client *firestore.Client
 }
@@ -18,8 +22,8 @@ func NewDatabase(client *firestore.Client) *FirestoreDatabase {
 	}
 }
 
-func NewFirebaseClient() *FirestoreDatabase {
-	opt := option.WithCredentialsFile("/Users/jeff/go/src/nuzlockePrivateKey.json")
+func NewFirebaseClient() *firestore.Client {
+	opt := option.WithCredentialsFile("/Users/jeff/GitHub/PEG3000-GO/src/nuzlockePrivateKey.json")
 	app, err := firebase.NewApp(context.Background(), nil, opt)
 
 	if err != nil {
@@ -32,13 +36,7 @@ func NewFirebaseClient() *FirestoreDatabase {
 	if err != nil {
 		zap.L().Fatal("Client was unable to be created", zap.Error(err))
 	}
-	db := NewDatabase(client)
-
-	if err != nil {
-		zap.L().Fatal("Error: ", zap.Error(err))
-		return nil
-	}
 
 	zap.L().Info("Successfully connected to firebase")
-	return db
+	return client
 }
