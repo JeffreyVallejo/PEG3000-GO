@@ -24,7 +24,7 @@ func NewDatabase(client *firestore.Client) *FirestoreDatabase {
 }
 
 func NewFirebaseClient() *firestore.Client {
-	opt := option.WithCredentialsFile("/Users/jeff/GitHub/PEG3000-GO/src/nuzlockePrivateKey.json")
+	opt := option.WithCredentialsFile("/Users/jeff/GitHub/PEG3000-GO/nuzlockePrivateKey.json")
 	app, err := firebase.NewApp(context.Background(), nil, opt)
 
 	if err != nil {

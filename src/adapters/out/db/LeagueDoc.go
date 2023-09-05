@@ -8,11 +8,11 @@ import (
 
 type LeagueDoc struct {
 	*firestore.DocumentRef `firestore:"-"`
-	DisplayName            string `json:"displayName"`
-	OwnerId                string `json:"ownerId"`
-	SecureId               string `json:"secureId"`
-	IsActive               bool   `json:"isActive"`
-	IsRegOpen              bool   `json:"isRegOpen"`
+	DisplayName            string `firestore:"displayName"`
+	OwnerId                string `firestore:"ownerId"`
+	SecureId               string `firestore:"secureId"`
+	IsActive               bool   `firestore:"isActive"`
+	IsRegOpen              bool   `firestore:"isRegOpen"`
 }
 
 func NewLeagueDoc(league domain.League) LeagueDoc {
@@ -26,7 +26,7 @@ func NewLeagueDoc(league domain.League) LeagueDoc {
 }
 
 func DataToLeagueDoc(docSnap *firestore.DocumentSnapshot) (doc LeagueDoc, err error) {
-	if err = docSnap.DataTo(doc); err != nil {
+	if err = docSnap.DataTo(&doc); err != nil {
 		zap.L().Error("DataTo LeagueDoc", zap.Error(err))
 	}
 	doc.DocumentRef = docSnap.Ref

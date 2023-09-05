@@ -7,7 +7,7 @@ import (
 )
 
 type GetWildPokemonUseCases interface {
-	Get(location string) (encounter dto.Encounter, err error)
+	Get(location string) (Encounter dto.Encounter, err error)
 }
 
 type GetWildPokemonService struct {
