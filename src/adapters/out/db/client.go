@@ -10,6 +10,7 @@ import (
 
 const (
 	WildPokemonCollection = "Encounter-Pokemon"
+	LeagueCollection      = "League"
 )
 
 type FirestoreDatabase struct {

@@ -1,7 +1,7 @@
 package db
 
 import (
-	"PEG3000/src/adapters/core/domain"
+	"PEG3000/src/core/domain"
 	"cloud.google.com/go/firestore"
 	"encoding/json"
 	"go.uber.org/zap"

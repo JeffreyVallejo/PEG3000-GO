@@ -1,8 +1,8 @@
 package web
 
 import (
-	"PEG3000/src/adapters/core/services"
 	"PEG3000/src/adapters/in/web/dto"
+	"PEG3000/src/core/services"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

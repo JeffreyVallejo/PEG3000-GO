@@ -1,9 +1,9 @@
 package main
 
 import (
-	"PEG3000/src/adapters/core/services"
 	"PEG3000/src/adapters/in/web"
 	"PEG3000/src/adapters/out/db"
+	"PEG3000/src/core/services"
 	"go.uber.org/zap"
 )
 

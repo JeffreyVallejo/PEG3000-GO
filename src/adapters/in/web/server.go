@@ -9,8 +9,10 @@ const (
 	RootRoute      = "/"
 	HealthRoute    = "/health"
 	EncounterRoute = "/encounter"
+	LeagueRoute    = "/league"
 	PathParam      = "/:"
 	Location       = "location"
+	Id             = "id"
 )
 
 type Server struct {
