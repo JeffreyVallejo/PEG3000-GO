@@ -14,7 +14,7 @@ type GetLeagueService struct {
 	db.GetLeagueDbAdapter
 }
 
-func GetNewLeagueService(adapter db.GetLeagueDbAdapter) GetLeagueService {
+func NewGetLeagueService(adapter db.GetLeagueDbAdapter) GetLeagueService {
 	return GetLeagueService{
 		GetLeagueDbAdapter: adapter,
 	}
@@ -23,5 +23,4 @@ func GetNewLeagueService(adapter db.GetLeagueDbAdapter) GetLeagueService {
 func (service GetLeagueService) Get(id string) (league domain.League, err error) {
 	zap.L().Info("Get League Service")
 	return service.GetLeagueDbAdapter.Get(id)
-
 }

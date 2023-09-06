@@ -16,10 +16,12 @@ func main() {
 	client := db.NewFirebaseClient()
 	getWildPokemon := db.NewGetWildPokemonDbAdapter(client)
 	getLeague := db.NewGetLeagueDbAdapter(client)
+	addLeague := db.NewAddLeagueDbAdapter(client)
 
 	server := web.NewServer().
 		WithGetWildPokemonAdapter(services.NewGetWildPokemonService(getWildPokemon)).
-		WithGetLeagueAdapter(services.GetNewLeagueService(getLeague))
+		WithGetLeagueAdapter(services.NewGetLeagueService(getLeague)).
+		WithAddLeagueAdapter(services.NewAddLeagueService(addLeague))
 
 	if err := server.Run(); err != nil {
 		zap.L().Fatal("listen", zap.Error(err))

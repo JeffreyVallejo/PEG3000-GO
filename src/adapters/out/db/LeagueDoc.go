@@ -15,6 +15,7 @@ type LeagueDoc struct {
 	IsRegOpen              bool   `firestore:"isRegOpen"`
 }
 
+// NewLeagueDoc Returns a LeagueDoc created from domain.League.
 func NewLeagueDoc(league domain.League) LeagueDoc {
 	return LeagueDoc{
 		DisplayName: league.DisplayName,
